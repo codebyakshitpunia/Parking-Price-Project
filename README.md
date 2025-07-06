@@ -90,8 +90,7 @@ graph TD
 ---
 
 ## 📂 Repository Contents
-- **ParkSense.ipynb**: The main Google Colab notebook containing all the Python code for data preprocessing, model training, Pathway pipeline definition, and Bokeh/Panel visualizations.
+- **Project_NB.ipynb**: The main Google Colab notebook containing all the Python code for data preprocessing, model training, Pathway pipeline definition, and Bokeh/Panel visualizations.
 - **dataset.csv**: The raw historical parking data used for the project.
-- **parking_data_stream.csv**: The preprocessed CSV file used by Pathway for simulating the real-time data stream.
+- **data_stream.csv**: The preprocessed CSV file used by Pathway for simulating the real-time data stream.
 - **README.md**
-- **Project_Report.pdf**: A detailed report explaining the project, models, assumptions, and results.
