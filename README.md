@@ -107,4 +107,4 @@ This project utilizes a combination of Python tools for data processing, machine
     ├── Parky.ipynb           \# Main Jupyter Notebook with Pathway pipeline and Bokeh setup  
     ├── README.md                 \# This README file  
     ├── dataset.csv               \# The raw dataset used for simulation  
-    ├── parking\_data\_stream.csv   \# (Optional) Simulated real-time data stream  
+    ├── parking_stream.csv   \# (Optional) Simulated real-time data stream  
