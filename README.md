@@ -34,19 +34,31 @@ This project utilizes a combination of Python tools for data processing, machine
 ## 📐 Architecture Diagram
 
 ```
-graph TD
-    A[Historical Dataset - dataset.csv] --> B(Data Preprocessing - Pandas/NumPy);
-    B --> C(Simulated Data Stream - parking_data_stream.csv);
-    C --> D[Pathway Data Ingestion - pw.demo.replay_csv];
-    D --> E{Pathway Real-time Processing};
-    E -- Current Data (pw.this) --> F[Pricing Models:];
-    F --> F1(Model 1: Baseline Linear);
-    F --> F2(Model 2: Demand-Based - Learned Coefficients);
-    F --> F3(Model 3: Competitive - Simplified);
-    E -- All Parking Data --> F3;
-    F1 & F2 & F3 --> G(Combined Prices Stream);
-    G --> H[Real-time Visualization - Bokeh/Panel];
-    H --> I[Interactive Dashboard in Browser];
+ graph TD  
+        A\[Raw Parking Data Stream\] \--\> B(Pathway Data Ingestion);  
+        B \--\> C{Feature Engineering};  
+        C \--\> D\[Dynamic Pricing Logic\];  
+        D \-- Predicted Prices \--\> E\[Real-time Price Output\];  
+        C \-- Occupancy, Queue, Traffic \--\> F\[Utilization & Demand Analysis\];  
+        E \--\> G(Bokeh Visualizations);  
+        F \--\> G;  
+        G \--\> H\[Interactive Dashboard\];
+
+        subgraph Pricing Engine  
+            C  
+            D  
+            E  
+            F  
+        end
+
+        style A fill:\#f9f,stroke:\#333,stroke-width:2px  
+        style B fill:\#bbf,stroke:\#333,stroke-width:2px  
+        style C fill:\#ccf,stroke:\#333,stroke-width:2px  
+        style D fill:\#ddf,stroke:\#333,stroke-width:2px  
+        style E fill:\#eef,stroke:\#333,stroke-width:2px  
+        style F fill:\#ffc,stroke:\#333,stroke-width:2px  
+        style G fill:\#cfc,stroke:\#333,stroke-width:2px  
+        style H fill:\#fcc,stroke:\#333,stroke-width:2px
 ```
 
 ---
@@ -89,8 +101,10 @@ graph TD
 
 ---
 
-## 📂 Repository Contents
-- **Project_NB.ipynb**: The main Google Colab notebook containing all the Python code for data preprocessing, model training, Pathway pipeline definition, and Bokeh/Panel visualizations.
-- **dataset.csv**: The raw historical parking data used for the project.
-- **data_stream.csv**: The preprocessed CSV file used by Pathway for simulating the real-time data stream.
-- **README.md**
+## **📁 Repository Contents**
+
+    .  
+    ├── Parky.ipynb           \# Main Jupyter Notebook with Pathway pipeline and Bokeh setup  
+    ├── README.md                 \# This README file  
+    ├── dataset.csv               \# The raw dataset used for simulation  
+    ├── parking\_data\_stream.csv   \# (Optional) Simulated real-time data stream  
